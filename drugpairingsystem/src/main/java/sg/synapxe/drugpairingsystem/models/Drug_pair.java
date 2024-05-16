@@ -3,13 +3,12 @@ package sg.synapxe.drugpairingsystem.models;
 import java.util.ArrayList;
 import java.io.Serializable;
 
-@Entity
 public class Drug_pair implements Serializable {
     public long id;
     public String drug_name;
     public String AE_name;
     public ArrayList<String> contexts;
-    public ArrayList<String> ADR_posibilities = new ArrayList<String>("True", "False", "Uncertain");
+    public static final String[] ADR_posibilities = {"True", "False", "Uncertain"};
     public String Remarks;
 
     public Drug_pair(long id, String drug_name, String AE_name, ArrayList<String> contexts, String Remarks) {

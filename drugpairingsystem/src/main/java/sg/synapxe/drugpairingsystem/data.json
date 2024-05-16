@@ -1,0 +1,64 @@
+{
+    "drug-pairs": [
+        {
+            "id": 1,
+            "drug-name": "drug1",
+            "AE-name": "AE1",
+            "ADR-possibilities": 1
+        }, 
+        {
+            "id": 2,
+            "drug-name": "drug2",
+            "AE-name": "AE2",
+            "ADR-possibilities": 2
+        }, 
+        {
+            "id": 3,
+            "drug-name": "drug3",
+            "AE-name": "AE3",
+            "ADR-possibilities": 1
+        }, 
+        {
+            "id": 4,
+            "drug-name": "drug4",
+            "AE-name": "AE4",
+            "ADR-possibilities": 0
+        }, 
+        {
+            "id": 5,
+            "drug-name": "drug5",
+            "AE-name": "AE5",
+            "ADR-possibilities": 2
+        }, 
+        {
+            "id": 6,
+            "drug-name": "drug6",
+            "AE-name": "AE6",
+            "ADR-possibilities": 1
+        }, 
+        {
+            "id": 7,
+            "drug-name": "drug7",
+            "AE-name": "AE7",
+            "ADR-possibilities": 0
+        }, 
+        {
+            "id": 8,
+            "drug-name": "drug8",
+            "AE-name": "AE8",
+            "ADR-possibilities": 2
+        }, 
+        {
+            "id": 9,
+            "drug-name": "drug9",
+            "AE-name": "AE9",
+            "ADR-possibilities": 1
+        }, 
+        {
+            "id": 10,
+            "drug-name": "drug10",
+            "AE-name": "AE10",
+            "ADR-possibilities": 0
+        }
+    ]
+}

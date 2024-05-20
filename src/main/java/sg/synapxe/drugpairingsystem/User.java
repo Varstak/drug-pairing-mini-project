@@ -1,4 +1,4 @@
-package sg.synapxe.drugpairingsystem.models;
+package sg.synapxe.drugpairingsystem;
 
 public class User {
     public long id;

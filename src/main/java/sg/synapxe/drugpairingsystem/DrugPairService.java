@@ -61,4 +61,36 @@ public class DrugPairService {
         String updatedContent = objectMapper.writeValueAsString(drugPairs);
         Files.write(Paths.get(filePath), updatedContent.getBytes());
     }
+
+    // delete drugpair and update the id of the rest of the drugpairs
+    public void deleteDrugPair(int id) throws Exception {
+        Optional<DrugPair> optionalDrugPair = getById(id);
+        if (optionalDrugPair.isPresent()) {
+            drugPairs.removeIf(pair -> pair.getId() == id);
+            drugPairs.forEach(pair -> {
+                if (pair.getId() > id) {
+                    pair.setId(pair.getId() - 1);
+                }
+            });
+            saveDrugPairs();
+        } else {
+            throw new IllegalArgumentException("DrugPair with id " + id + " not found.");
+        }
+    }
+
+    // edit drugpair and update the drugpair
+    public void editDrugPair(int id, DrugPair editedDrugPair) throws Exception {
+        Optional<DrugPair> optionalDrugPair = getById(id);
+        if (optionalDrugPair.isPresent()) {
+            DrugPair drugPair = optionalDrugPair.get();
+            drugPair.setDrug_name(editedDrugPair.getDrug_name());
+            drugPair.setAe_name(editedDrugPair.getAe_name());
+            drugPair.setContexts(editedDrugPair.getContexts());
+            drugPair.setAdr_posibilities(editedDrugPair.getAdr_posibilities());
+            drugPair.setRemarks(editedDrugPair.getRemarks());
+            saveDrugPairs();
+        } else {
+            throw new IllegalArgumentException("DrugPair with id " + id + " not found.");
+        }
+    }
 }

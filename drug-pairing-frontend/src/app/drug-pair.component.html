@@ -1,0 +1,42 @@
+<div class="container">
+    <h2>Drug-AE Pairs found in DS notes:</h2>
+    <div *ngFor="let pair of drugPairs; let i = index">
+      <div class="drug-ae-pair">
+        <h3>Drug-AE Pair {{i + 1}}</h3>
+        <div>
+          <label>Drug in ADR</label>
+          <input [(ngModel)]="pair.drug_name" placeholder="Drug" />
+        </div>
+        <div>
+          <label>AE in ADR</label>
+          <input [(ngModel)]="pair.AE_name" placeholder="AE" />
+        </div>
+        <div *ngFor="let context of pair.contexts; let j = index">
+          <label>Context {{j + 1}}</label>
+          <input [(ngModel)]="pair.contexts[j]" placeholder="Context" />
+        </div>
+        <button (click)="addContext(pair)">+ Add Context</button>
+        <div>
+          <label>Drug ADR Possibility</label>
+          <div>
+            <label>
+              <input type="radio" [(ngModel)]="pair.ADR_possibilities" [value]="1" /> True
+            </label>
+            <label>
+              <input type="radio" [(ngModel)]="pair.ADR_possibilities" [value]="0" /> False
+            </label>
+            <label>
+              <input type="radio" [(ngModel)]="pair.ADR_possibilities" [value]="-1" /> Uncertain
+            </label>
+          </div>
+        </div>
+        <div>
+          <label>Remarks (Optional)</label>
+          <textarea [(ngModel)]="pair.Remarks"></textarea>
+        </div>
+        <button (click)="deleteDrugPair(pair.id)">Delete</button>
+      </div>
+    </div>
+    <button (click)="addDrugPair()">+ Add Drug AE Pair</button>
+  </div>
+  

@@ -3,6 +3,6 @@ export interface DrugPair {
     drug_name: string;
     AE_name: string;
     contexts: string[];
-    ADR_posibilities: string[];
+    ADR_possibilities: number;
     Remarks: string;
 }

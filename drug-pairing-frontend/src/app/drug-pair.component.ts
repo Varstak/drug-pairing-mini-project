@@ -69,7 +69,20 @@ export class DrugPairComponent implements OnInit {
 
   saveDrugPairs(): void {
     // Check if any required fields are empty
-    const hasEmptyFields = this.drugPairs.some(pair =>!pair.drug_name ||!pair.ae_name /* Add other checks here */);
+    // context field should not be empty if there is a context field
+    let hasEmptyFields = false;
+    this.drugPairs.forEach(pair => {
+      if (pair.drug_name === '' || pair.ae_name === '' || pair.adr_possibilities === 0) {
+        hasEmptyFields = true;
+      }
+      if (pair.contexts.length > 0) {
+        pair.contexts.forEach(context => {
+          if (context === '') {
+            hasEmptyFields = true;
+          }
+        });
+      }
+    });
   
     if (!hasEmptyFields) {
       const saveObservables = this.drugPairs.map(pair => {
@@ -82,9 +95,10 @@ export class DrugPairComponent implements OnInit {
   
       forkJoin(saveObservables).subscribe(() => {
         this.loadDrugPairs(); // Reload to get updated IDs and data
+        alert('Saved successfully'); // Show alert after successfully saving
       });
     } else {
-      alert('Please fill in all required fields.'); // Consider using a more sophisticated way to show errors
+      alert('Please fill in all required fields.');
     }
   }
   

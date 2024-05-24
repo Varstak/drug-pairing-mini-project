@@ -72,7 +72,7 @@ export class DrugPairComponent implements OnInit {
     // context field should not be empty if there is a context field
     let hasEmptyFields = false;
     this.drugPairs.forEach(pair => {
-      if (pair.drug_name === '' || pair.ae_name === '' || pair.adr_possibilities === 0) {
+      if (pair.drug_name === '' || pair.ae_name === '') {
         hasEmptyFields = true;
       }
       if (pair.contexts.length > 0) {

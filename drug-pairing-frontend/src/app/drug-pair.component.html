@@ -41,7 +41,8 @@
         <label>Remarks (Optional)</label>
         <textarea [(ngModel)]="pair.remarks"></textarea>
       </div>
-      <button (click)="deleteDrugPair(pair.id)">Delete</button>
+      <button (click)="deleteDrugPair(pair)">Delete</button>
+
     </div>
   </div>
   <button (click)="addDrugPair()">+ Add Drug AE Pair</button>

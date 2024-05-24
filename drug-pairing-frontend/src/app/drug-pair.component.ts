@@ -60,12 +60,18 @@ export class DrugPairComponent implements OnInit {
     this.cdr.detectChanges();
   }  
 
-  deleteDrugPair(id: number): void {
-    this.drugPairService.deleteDrugPair(id).subscribe(() => {
-      this.drugPairs = this.drugPairs.filter(pair => pair.id !== id);
+  deleteDrugPair(pair: DrugPair): void {
+    if (pair.id === 0) {
+      this.drugPairs = this.drugPairs.filter(p => p !== pair);
+      return;
+    }
+  
+    this.drugPairService.deleteDrugPair(pair.id).subscribe(() => {
+      this.drugPairs = this.drugPairs.filter(p => p !== pair);
       this.cdr.detectChanges();
     });
   }
+  
 
   saveDrugPairs(): void {
     // Check if any required fields are empty

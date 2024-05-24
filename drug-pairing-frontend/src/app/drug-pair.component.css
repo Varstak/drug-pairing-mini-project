@@ -1,0 +1,45 @@
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+}
+
+.drug-ae-pair {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+.drug-ae-pair label {
+  display: inline-block;
+  width: 150px;
+  margin-top: 10px;
+}
+
+.drug-ae-pair input,
+.drug-ae-pair textarea {
+  width: calc(100% - 160px);
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.context-input {
+  display: flex;
+  align-items: center;
+}
+
+.context-field {
+  flex: 1;
+}
+
+button {
+  margin-top: 10px;
+  
+}

@@ -86,7 +86,7 @@ public class DrugPairService {
             drugPair.setDrug_name(editedDrugPair.getDrug_name());
             drugPair.setAe_name(editedDrugPair.getAe_name());
             drugPair.setContexts(editedDrugPair.getContexts());
-            drugPair.setAdr_posibilities(editedDrugPair.getAdr_posibilities());
+            drugPair.setAdr_possibilities(editedDrugPair.getAdr_possibilities());
             drugPair.setRemarks(editedDrugPair.getRemarks());
             saveDrugPairs();
         } else {

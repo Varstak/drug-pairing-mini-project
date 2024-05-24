@@ -9,8 +9,8 @@ public class DrugPair {
     private String drug_name;
     private String ae_name;
     private List<String> contexts;
-    @JsonProperty("adr-possibilities")
-    private int adr_posibilities;
+    @JsonProperty("adr_possibilities")
+    private int adr_possibilities;
     private String remarks;
 
     // Default constructor
@@ -18,13 +18,13 @@ public class DrugPair {
     }
 
     // Parameterized constructor
-    public DrugPair(int id, String drug_name, String ae_name, List<String> contexts, int adr_posibilities,
+    public DrugPair(int id, String drug_name, String ae_name, List<String> contexts, int adr_possibilities,
             String remarks) {
         this.id = id;
         this.drug_name = drug_name;
         this.ae_name = ae_name;
         this.contexts = contexts;
-        this.adr_posibilities = adr_posibilities;
+        this.adr_possibilities = adr_possibilities;
         this.remarks = remarks;
     }
 
@@ -61,12 +61,12 @@ public class DrugPair {
         this.contexts = contexts;
     }
 
-    public int getAdr_posibilities() {
-        return adr_posibilities;
+    public int getAdr_possibilities() {
+        return adr_possibilities;
     }
 
-    public void setAdr_posibilities(int adr_posibilities) {
-        this.adr_posibilities = adr_posibilities;
+    public void setAdr_possibilities(int adr_possibilities) {
+        this.adr_possibilities = adr_possibilities;
     }
 
     public String getRemarks() {

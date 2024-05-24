@@ -6,15 +6,25 @@
       <div>
         <label>Drug in ADR</label>
         <input [(ngModel)]="pair.drug_name" placeholder="Drug" />
+        <span *ngIf="pair.drug_name == ''" class="error-message">Drug name is required.</span>
       </div>
       <div>
         <label>AE in ADR</label>
         <input [(ngModel)]="pair.ae_name" placeholder="AE" />
+        <span *ngIf="pair.ae_name == ''" class="error-message">AE name is required.</span>
+
       </div>
       <div *ngFor="let context of pair.contexts; let j = index; trackBy: trackByIndex">
         <label>Context {{j + 1}}</label>
         <input [(ngModel)]="pair.contexts[j]" placeholder="Context" />
-        <button (click)="removeContext(pair, j)">Delete Context</button>
+        <span *ngIf="pair.contexts[j] == ''" class="error-message">Context is required.</span>
+        <div>
+          <button (click)="removeContext(pair, j)">Delete Context</button>    
+        </div>
+
+      </div>
+      <div>
+        
       </div>
       <button (click)="addContext(pair)">+ Add Context</button>
       <div>

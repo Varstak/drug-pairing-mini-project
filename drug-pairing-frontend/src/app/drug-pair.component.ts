@@ -68,18 +68,26 @@ export class DrugPairComponent implements OnInit {
   }
 
   saveDrugPairs(): void {
-    const saveObservables = this.drugPairs.map(pair => {
-      if (pair.id === 0) {
-        return this.drugPairService.addDrugPair(pair);
-      } else {
-        return this.drugPairService.updateDrugPair(pair);
-      }
-    });
-
-    forkJoin(saveObservables).subscribe(() => {
-      this.loadDrugPairs(); // Reload to get updated IDs and data
-    });
+    // Check if any required fields are empty
+    const hasEmptyFields = this.drugPairs.some(pair =>!pair.drug_name ||!pair.ae_name /* Add other checks here */);
+  
+    if (!hasEmptyFields) {
+      const saveObservables = this.drugPairs.map(pair => {
+        if (pair.id === 0) {
+          return this.drugPairService.addDrugPair(pair);
+        } else {
+          return this.drugPairService.updateDrugPair(pair);
+        }
+      });
+  
+      forkJoin(saveObservables).subscribe(() => {
+        this.loadDrugPairs(); // Reload to get updated IDs and data
+      });
+    } else {
+      alert('Please fill in all required fields.'); // Consider using a more sophisticated way to show errors
+    }
   }
+  
 
   trackByPair(index: number, pair: DrugPair): number {
     return pair.id;
